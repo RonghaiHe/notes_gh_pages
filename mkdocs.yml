@@ -1,15 +1,15 @@
 # info
-site_name: awslasasd's Notebook
-site_author: awslasasd
-site_description: awslasasd的笔记本
-site_url: "https://awslasasd.github.io/"
+site_name: RonghaiHe's Notebook
+site_author: Ronghai He
+site_description: RonghaiHe的笔记本
+site_url: "https://ronghaihe.github.io/notes"
 
 # repository information
-repo_name: 'awslasasd/Notes'
-repo_url: 'https://github.com/awslasasd/awslasasd.github.io'
+repo_name: 'RonghaiHe/notes_gh_pages'
+repo_url: 'https://github.com/RonghaiHe/notes_gh_pages'
 
 # copyright
-copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2023-2024 <a href="https://github.com/awslasasd" target="_blank">awslasasd</a>
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2025 <a href="https://github.com/RonghaiHe target="_blank">RonghaiHe</a>
 
 # configuration
 theme:
@@ -168,8 +168,8 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/awslasasd
-      name: awslasasd's Profile
+      link: https://github.com/RonghaiHe
+      name: RonghaiHe's Profile
 
 extra_css:
   # - style/css/extra.css
@@ -236,84 +236,10 @@ plugins:
 # navigation
 # 注意左右下划线的写法
 nav:
-  - Home : 
-    - index.md
-    - 友链: links.md
-  - Class: 
-    - 控制 :
-      - 电气控制技术 : Class/Control/C_C01_Electrical_control.md
-      - 现代控制原理 : Class/Control/C_C02_Modern_control.md
-      - 智能控制技术 : Class/Control/C_C03_Intelligent_control.md
-      - 运动控制 : Class/Control/C_C04_Motion_contorl.md
-    - 电气 :
-      - 智能供配电 : Class/EE/C_E01_Power_distribution.md
-    - 检测 : 
-      - 传感与检测 : 
-        - 课程内容 : Class/Sensor/C_S01_Sensing_detection.md
-        - 复习资料 : 
-          - 随堂测试一 : Class/class_source/C_S01/c1.1.md
-          - 随堂测试二 : Class/class_source/C_S01/c3.3.md
-          - 随堂测试三 : Class/class_source/C_S01/c3.4.md
-          - 随堂测试四 : Class/class_source/C_S01/c3.5.md
-          - 随堂测试五 : Class/class_source/C_S01/c3.6.md
-          - 随堂测试六 : Class/class_source/C_S01/c4.1.md
-          - 24年期中测试一 : Class/class_source/C_S01/midExam24_01.pdf
-          - 24年期中测试二 : Class/class_source/C_S01/midExam24_01.pdf
-          - 23年期中测试 : Class/class_source/C_S01/midExam23.pdf
-          - 复习课 : Class/class_source/C_S01/Review.md
-      - 计算机控制系统 : 
-        - 课程内容 : Class/Sensor/C_S02_PLC.md
-        - 复习资料 : 
-          - 23-24期末 : Class/class_source/C_S02/23Final.md
-          - 22-23期末 : Class/class_source/C_S02/22Final.md
-    - 机器学习 :
-      - 人工智能与机器学习 : 
-        - 课程内容 : Class/MachineLearning/C_M01_AI_ML.md
-        - 复习资料 :
-            - 双目障碍检测 : Class/class_source/C_M01/LAB1.md
-            - 口罩佩戴检测 : Class/class_source/C_M01/LAB2.md
-            - 机器人自动走迷宫 : Class/class_source/C_M01/LAB3.md
-            - 作家风格识别 : Class/class_source/C_M01/LAB4.md
-            - 期末速通 : Class/class_source/C_M01/Review.md
-    - 思政 :
-      - 毛概 : Class/Ideological/C_I01_Mao_theories.md
-      - 发展对象: Class/Ideological/C_I02_PartydevExam.md 
-      - 习概 : Class/Ideological/C_I03_Xi_theories.md
-    - 大数据 :
-      - 信息安全导论 : Class/Bigdata/C_B01_Information_safety.md
-      - 扫描工具 : Class/Bigdata/C_B02_Scan.md
-      - 蜜罐部署 : Class/Bigdata/C_B03_Honeypot.md
-      - 逆向工程 : Class/Bigdata/C_B04_Reverse.md
-  - Robotics : 
-    - Naviagtion : 
-      - 导航规划 : Robotics/Navigation/R_N01_Navigation_planning.md
-      - 里程估计 : Robotics/Navigation/R_N02_Odometry.md
-      - 定位 : Robotics/Navigation/R_N03_Localization.md
-    - Roboticsmodel : 
-      - ROS框架 : Robotics/Roboticsmodel/R_R01_ROS.md
-      - 机器人建模与控制 : 
-        - 课程内容 : Robotics/Roboticsmodel/R_R02_model.md
-        - 复习资料 : Robotics/class_source/R_R02_review.md
-      - 空中机器人 : Robotics/Roboticsmodel/R_R03_Airrobot.md
-    - CV :
-      - 工业视觉 : Robotics/CV/R_C01_IndustryCV.md
-    - 嵌入式 :
-      - Modbus : Robotics/Embedded/R_E01_Modbus.md
-      - Arduino实践 : Robotics/Embedded/R_E01_arduinoTest.md
-  - CS : 
-    - ML :
-      - 机器学习 : CS/ML/C_M01_ML.md
-  # - Reproduction :
-  #   - UAV自主探索 : Reproduction/P_01.md
-  #   - FALCON : Reproduction/P_02.md
-  - Tools: 
-    - Git: Tools/Git.md
-    - Createsite : Tools/Createsite.md 
-    - Latex: Tools/latex.md
-    - Juypter: Tools/Juypter.md
-    - AI: Tools/AI.md
-    - OneDrive: Tools/OneDrive.md
-    - Overleaf: Tools/overleaf.md
-    - Linux :
-      - 双系统更改开机顺序 : Tools/Linux/linux.md
-      - SSH : Tools/Linux/ssh.md
+  - Math :
+    - Engineering Methods
+      - Linear Algebra
+        - Ch1-basic: math/eng_method/linear_algebra1.md
+  - Control: 
+    - Optimal Control
+      - Ch1-Introduction: control/optimal_control/optimal_control1.md
