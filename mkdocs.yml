@@ -237,9 +237,9 @@ plugins:
 # 注意左右下划线的写法
 nav:
   - Math :
-    - Engineering Methods
-      - Linear Algebra
+    - Engineering Methods :
+      - Linear Algebra :
         - Ch1-basic: math/eng_method/linear_algebra1.md
-  - Control: 
-    - Optimal Control
+  - Control : 
+    - Optimal Control :
       - Ch1-Introduction: control/optimal_control/optimal_control1.md

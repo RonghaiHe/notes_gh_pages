@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: deploy
 
 on:
   push:
@@ -12,21 +12,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: 3.11
       - name: Install dependencies
         run: pip install -r requirements.txt
-      # - name: Build site
-      #   run: mkdocs build
-      # - name: Deploy to target branch
-      #   uses: peaceiris/actions-gh-pages@v4  # push to branch: gh-pages
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./site  # directory of products built by MkDocs
-      #     publish_branch: gh-pages  # target branch
       - run: mkdocs gh-deploy --force
