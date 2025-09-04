@@ -12,52 +12,89 @@ For the time being we will therefore not introduce any payoff criterion that wou
 ### Definition
 - *reachable set* for time $t$:
   $\mathcal{C}(t)=$ **set of initial points $x^0$** for which there exists a control such that $x(t) = 0$
-- *reachable set:
+- *reachable set*:
   $\mathcal{C}=$ **set of initial points $x^0$** for which there exists a control such that $x(t) = 0$ for some finite time $t$; 
-  $$\mathcal{C}=\bigcup_{t\ge 0}\mathcal{C}(t)$$
+  
+  $$
+    \mathcal{C}=\bigcup_{t\ge 0}\mathcal{C}(t)
+  $$
 
 Let $\mathbb{M}^{n\times m}$ denote the set of all $n\times m$ matrices. Assume that this and next chapter, the ODE is linear in both the state $\boldsymbol{x}(\cdot)$ and the control $\boldsymbol{\alpha}(\cdot)$, and he ODE hasthe form
-$$\left\{\begin{array}{l}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)+N \boldsymbol{\alpha}(t) \\ \boldsymbol{x}(0)=x^0\end{array}\right.$$
+
+$$
+\left\{\begin{array}{l}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)+N \boldsymbol{\alpha}(t) \\ \boldsymbol{x}(0)=x^0\end{array}\right.
+$$
 
 where $M\in \mathbb{M}^{n\times n}$ and $N\in \mathbb{M}^{n\times m}$. Assume the set $A$ of conrol parameters is a cube in $\mathbb{R}^m$:
-$$A=[-1,1]^m=\{a\in\mathbb{R}^m| |a_i|\le 1, i=1,\ldots,m\}$$
+
+$$
+A=[-1,1]^m=\{a\in\mathbb{R}^m| |a_i|\le 1, i=1,\ldots,m\}
+$$
 
 ## 2.2 Quick review of linear ODE
 Definition: let $\boldsymbol{X}(\cdot):\mathbb{R}\to \mathbb{M}^{n\times n}$ be the unique solution of the matrix ODE:
-$$\begin{cases}\dot{\boldsymbol{X}}(t)=M \boldsymbol{X}(t) \quad (t\in\mathbb{R})\\ \boldsymbol{X}(0)=\boldsymbol{I}.\end{cases}$$
+
+$$
+\begin{cases}\dot{\boldsymbol{X}}(t)=M \boldsymbol{X}(t) \quad (t\in\mathbb{R})\\ \boldsymbol{X}(0)=\boldsymbol{I}.\end{cases}
+$$
 
 We call $\boldsymbol{X}(t)$ the *fundamental solution* and sometimes write
-$$\boldsymbol{X}(t)=e^{tM}:=\sum_{t=0}^\infty \frac{t^kM^k}{k!}$$
+
+$$
+\boldsymbol{X}(t)=e^{tM}:=\sum_{t=0}^\infty \frac{t^kM^k}{k!}
+$$
 
 Last formula being the definition of the exponential $e^{tM}$ and observe that
-$$\boldsymbol{X}^{-1}(t)=\boldsymbol{X}(-t)$$
+
+$$
+\boldsymbol{X}^{-1}(t)=\boldsymbol{X}(-t)
+$$
 
 **Theorem 2.1**: Solving linear systems of ODE
 1. The *unique solution of the homogeneous system* of ODE
-  $$\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}$$
+2. 
+    $$
+    	\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}
+    $$
 
   is
-  $$\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0=e^{tM}x^0$$
+
+  $$
+  	\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0=e^{tM}x^0
+  $$
+
 2. The *unique solution of the nonhomogeneous system*
-   $$\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t) + \boldsymbol{f}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}$$
+
+  $$
+  	\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t) + \boldsymbol{f}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}
+  $$
 
   is
-  $$\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t \boldsymbol{X}^{-1}(s)\boldsymbol{f}(s)\mathrm{d}s$$
+
+  $$
+  	\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t \boldsymbol{X}^{-1}(s)\boldsymbol{f}(s)\mathrm{d}s
+  $$
 
 This expression is the *variation of parameters formula*.
 
 ## 2.3 Controllability of linear equations
 According to the **variation of parameters formula**, the solution of (linear ODE) for a given control $\boldsymbol{\alpha}(·)$ is
-$$\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$$
 
-$$\begin{aligned}
+$$
+\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s
+$$
+
+$$
+\begin{aligned}
   &x^0\in\mathcal{C}(t) \\
   \leftrightarrow& \text{there exists a control } \boldsymbol{\alpha}(\cdot)\in\mathcal{A} \text{ s.t. } \boldsymbol{x}(t)=0 \\
   \leftrightarrow& 0=\boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A} \\
   \leftrightarrow& x^0 =-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A}
-\end{aligned}$$
+\end{aligned}
+$$
 
 **Theorem 2.2**: Structure of reachable set
+
 1. The *reachable set* $\mathcal{C}$ is symmetric and convex.
 2. Also, if $x^0\in\mathcal{C}(\bar{t})$, then $x^0\in\mathcal{C}(t)$ for all times $t\ge \bar{t}$
 
@@ -66,42 +103,67 @@ $$\begin{aligned}
 2. The set $S$ is convex if $x, \hat{x}\in S$ and $0\le\lambda\le 1$ imply $\lambda x+(1-\lambda)\hat{x}\in S$
 
 Proof of theorem 2.2:
+
 1. (Symmetric) Let $t\ge 0$ and $x^0\in\mathcal{C}(t)$. Then $x^0=-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$ for some admissible control $\boldsymbol{\alpha}\in\mathcal{A}$.
+
   Therefore $-x^0=-\int_0^t\boldsymbol{X}^{-1}(s)N(-\boldsymbol{\alpha}(s))\mathrm{d}s$ and $-\boldsymbol{\alpha}(s)\in\mathcal{A}$ since set $A$ is symmetric
+
   Therefore $-x^0\in\mathcal{C}(t)$, and so each set $\mathcal{C}(t)$ symmetric. It follows that $\mathcal{C}$ is symmetric
+
 2. (Convexity) Take $x^0, \hat{x}^0\in\mathcal{C}$ so that $x^0\in\mathcal{C}, \hat{x}^0\in\mathcal{C}(\hat{t})$ for appropriate time $t,\hat{t}\ge 0$. Assume $t\le \hat{t}$. Then
-  $$\begin{aligned}
-    x^0 &=-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \quad \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A} \\
-    \hat{x}^0 &=-\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N\hat{\boldsymbol{\alpha}}(s)\mathrm{d}s \quad \text{ for some control }\hat{\boldsymbol{\alpha}}(\cdot)\in\mathcal{A}
-  \end{aligned}$$
+
+  $$
+	\begin{aligned}
+      x^0 &=-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \quad \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A} \\
+      \hat{x}^0 &=-\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N\hat{\boldsymbol{\alpha}}(s)\mathrm{d}s \quad \text{ for some control }\hat{\boldsymbol{\alpha}}(\cdot)\in\mathcal{A}
+  	\end{aligned}
+  $$
+
   Define a new control
-  $$\tilde{\boldsymbol{\alpha}}(s):=\begin{cases}
+
+  $$
+  	\tilde{\boldsymbol{\alpha}}(s):=\begin{cases}
     \boldsymbol{\alpha}(s) & \text{if } 0\le s\le t \\
     0 & \text{if } s> t
-  \end{cases}$$
+  	\end{cases}
+  $$
+
   Then
-  $$x^0 =-\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N\tilde{\boldsymbol{\alpha}}(s)\mathrm{d}s$$
+
+  $$
+  	x^0 =-\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N\tilde{\boldsymbol{\alpha}}(s)\mathrm{d}s
+  $$
+  
   and hence $x^0\in\mathcal{C}(\hat{t})$. Now let $0\le \lambda\le 1$, and observe
-  $$\lambda x^0 + (1-\lambda)\hat{x}^0 = -\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N(\lambda\tilde{\boldsymbol{\alpha}}(s) + (1-\lambda)\hat{\boldsymbol{\alpha}}(s))\mathrm{d}s$$
+  $$
+  	\lambda x^0 + (1-\lambda)\hat{x}^0 = -\int_0^{\hat{t}}\boldsymbol{X}^{-1}(s)N(\lambda\tilde{\boldsymbol{\alpha}}(s) + (1-\lambda)\hat{\boldsymbol{\alpha}}(s))\mathrm{d}s
+  $$
   Therefore $\lambda x^0 + (1-\lambda)\hat{x}^0\in\mathcal{C}(\hat{t})\subseteq\mathcal{C}$
+
 3. Assertion (ii) follows from the foregoing if we take $\bar{t}=\hat{t}$.
 
 ### A simple example
 Let $n=2$ and $m=1, A=[-1,1]$, and write $\boldsymbol{x}(t)= \left(x^1(t), x^2(t)\right)^T$. Suppose
-$$\begin{equation*}
+
+$$
+\begin{equation*}
 \left\{\begin{array}{l}
 \dot{x}^1=0 \\
 \dot{x}^2=\alpha(t) .
 \end{array}\right.
-\end{equation*}$$
+\end{equation*}
+$$
 
 This is a system of the form $\dot{\boldsymbol{x}}=M \boldsymbol{x}+N \alpha$, for
-$$\begin{equation*}
+
+$$
+\begin{equation*}
 M=\left(\begin{array}{ll}
 0 & 0 \\
 0 & 0
 \end{array}\right), \quad N=\binom{0}{1}
-\end{equation*}$$
+\end{equation*}
+$$
 
 Clearly $\mathcal{C}=\left\{\left(x_1, x_2\right) \mid x_1=0\right\}$, the $x_2$-axis.
 
@@ -109,9 +171,12 @@ We next wish to establish some general algebraic conditions ensuring that $\math
 
 ### Controllability
 Definition: The *controllability matrix* is
-$$G=G(M,N):=\underbrace{\begin{bmatrix}
+
+$$
+G=G(M,N):=\underbrace{\begin{bmatrix}
   N & MN & M^2N & \cdots & M^{n-1}N
-\end{bmatrix}}_{n\times (mn) \text{ matrix}}$$
+\end{bmatrix}}_{n\times (mn) \text{ matrix}}
+$$
 
 **Theorem 2.3**: Controllability matrix
 $$\operatorname{rank}G=n \leftrightarrow 0\in\mathcal{C}^\circ$$
@@ -121,86 +186,177 @@ Notation:
 - rank of $G$ = number of linearly independent rows / columns of $G$; $\operatorname{rank}G\le n$
 
 Proof:
+
 1. Suppose 1st that $\operatorname{rank}G<n$. This means that the linear span of the columns of G has dimension less than or equal to $n-1$. Thus there exists a vector $b \in \mathbb{R}^n, b \neq 0$, **orthogonal to each column of $G$**. This implies $b^\top G=0$. So
-  $$b^\top N = b^\top MN = \cdots = b^\top M^{n-1}N = 0$$
+
+  $$
+  	b^\top N = b^\top MN = \cdots = b^\top M^{n-1}N = 0
+  $$
+
 2. In fact, $b^\top M^kN=0, \, \forall k\in\mathbb{R}_+$
+
   To confirm this, recall that
-  $$p(\lambda):=\operatorname{det}(\lambda I-M)$$
+
+  $$
+  	p(\lambda):=\operatorname{det}(\lambda I-M)
+  $$
+
   is the **characteristic polynomial** of $M$. The **Cayley–Hamilton** Theorem states that $p(M)=0$
+
   So if we write
-  $$p(\lambda)=\lambda^n+\beta_{n-1} \lambda^{n-1}+\cdots+\beta_1 \lambda^1+\beta_0$$
+
+  $$
+  	p(\lambda)=\lambda^n+\beta_{n-1} \lambda^{n-1}+\cdots+\beta_1 \lambda^1+\beta_0
+  $$
+
   then
-  $$p(M)=M^n+\beta_{n-1} M^{n-1}+\cdots+\beta_1 M+\beta_0I = 0$$
+
+  $$
+  	p(M)=M^n+\beta_{n-1} M^{n-1}+\cdots+\beta_1 M+\beta_0I = 0
+  $$
+
   Therefore
-  $$M^n=-\beta_{n-1} M^{n-1}-\beta_{n-2} M^{n-2}-\cdots-\beta_1 M-\beta_0I$$
+
+  $$
+  	M^n=-\beta_{n-1} M^{n-1}-\beta_{n-2} M^{n-2}-\cdots-\beta_1 M-\beta_0I
+  $$
+
   and so
-  $$b^\top M^nN=b^\top(-\beta_{n-1} M^{n-1}-\cdots)N=0$$
+
+  $$
+  	b^\top M^nN=b^\top(-\beta_{n-1} M^{n-1}-\cdots)N=0
+  $$
+
   Similarly, $b^\top M^{n+1}N=0$, etc.
+
   Now notice that
-  $$\begin{aligned}
+
+  $$
+  	\begin{aligned}
     b^\top \mathbf{X}^{-1}(s) N&=b^\top e^{-s M} N\\
     &=b^T \sum_{k=0}^{\infty} \frac{(-s)^k M^k N}{k!}\\
     &=\sum_{k=0}^{\infty} \frac{(-s)^k}{k!} b^T M^k N=0
-  \end{aligned}$$
+ 	\end{aligned}
+  $$
+
 3. Assume next that $x^0\in\mathcal{C}(t)$. This is equivalent to having
-  $$x^0 =-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \quad \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$$
+
+  $$
+  	x^0 =-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s \quad \text{ for some control }\boldsymbol{\alpha}(\cdot)\in\mathcal{A}
+  $$
+
   Then
-  $$b\cdot x^0 =-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s =0$$
+
+  $$
+  	b\cdot x^0 =-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s =0
+  $$
   This says that $b$ is **orthogonal** $x^0$. In other words, $\mathcal{C}$ must lie in the hyperplane orthogonal to $b \neq 0$. Consequently $\mathcal{C}^\circ=\phi$.
+
   (How to understand: in the hyperplane, there is no hypersphere in the set)
+
 4. Conversely, assume that $0 \notin \mathcal{C}^\circ$. Thus $0 \notin \mathcal{C}^\circ(t), \, \forall t>0$. Since $\mathcal{C}(t)$ is convex, there exits a support hyperplane to $\mathcal{C}(t)$ through $0$(This hyperplane put the set into just one side, and $0$ is not in te interior, so can do this). This means that $\exist b\neq 0$, s.t. $b\cdot x^0\le 0, \forall x^0\in\mathcal{C}(t)$
+
 (An equation for hyperplane that crosses thre origin is $b\cdot x=0$)
+
 Choose any $x^0\in\mathcal{C}(t)$. Then
-  $$x^0 =-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$$
+
+  $$
+  	x^0 =-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s
+  $$
+
 for some control $\boldsymbol{\alpha}$, and therefore
-  $$0 \ge b\cdot x^0 =-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$$
+
+  $$
+  	0 \ge b\cdot x^0 =-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s
+  $$
+
 Thus
-  $$\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s\ge 0 \text{ for all controls } \boldsymbol{\alpha}(\cdot)$$
+
+  $$
+  	\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s\ge 0 \text{ for all controls } \boldsymbol{\alpha}(\cdot)
+  $$
+
 We assert that therefore
-  $$b^\top \boldsymbol{X}^{-1}(s)N\equiv 0$$
+
+  $$
+  	b^\top \boldsymbol{X}^{-1}(s)N\equiv 0
+  $$
+
 a proof of which follows as a lemma below. We rewrite it as
-  $$b^\top e^{-sM}N\equiv 0$$
+
+  $$
+  	b^\top e^{-sM}N\equiv 0
+  $$
+
 Let $s=0$ to see that $b^\top N=0$. Next **differentiate it with respect to s**, to find
 that
-  $$b^\top (-M)e^{-sM}N\equiv 0$$
+
+  $$
+  	b^\top (-M)e^{-sM}N\equiv 0
+  $$
+
 For $s=0$ this says
-  $$b^\top MN=0$$
+
+  $$
+  	b^\top MN=0
+  $$
+
 We repeatedly differentiate, to deduce
-  $$b^\top M^kN=0, \quad \forall =0,1,\cdots$$
+
+  $$
+  	b^\top M^kN=0, \quad \forall =0,1,\cdots
+  $$
+
 and so $b^\top G=0$. This implies $\operatorname{rank}G<n$, since $b\neq 0$.
 
 **LEMMA 2.4**: Integral inequalities
+
 Assume that
-$$\int_0^t b^\top \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s\ge 0$$
+
+$$
+\int_0^t b^\top \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s\ge 0$$
 for all controls $\boldsymbol{\alpha}(\cdot)$. Then
-$$b^\top \boldsymbol{X}^{-1}(s)N\equiv 0$$
+$$b^\top \boldsymbol{X}^{-1}(s)N\equiv 0
+$$
 
 Proof: Replacing $\boldsymbol{\alpha}$ with $-\boldsymbol{\alpha}$, we see that
-$\int_0^t b^\top \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s= 0$
+
+$$\int_0^t b^\top \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s= 0$$
+
 for all controls $\boldsymbol{\alpha}(\cdot)$.
 
 Define 
-$$\boldsymbol{v}(s):=b^\top \boldsymbol{X}^{-1}(s)N$$
+
+$$
+\boldsymbol{v}(s):=b^\top \boldsymbol{X}^{-1}(s)N
+$$
 
 If $\boldsymbol{v}\neq 0$, then $\boldsymbol{v}(s_0)\neq 0$ for some $s_0$. Then there exists an interval $I$ s.t. $s_0\in I$ and $\boldsymbol{v}(s)\neq 0$ on $I$. Now define $\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$ this way:
-$$\begin{cases}
+
+$$
+\begin{cases}
 \boldsymbol{\alpha}(s)=0, \quad (s\notin I)\\
 \boldsymbol{\alpha}(s)=\frac{\boldsymbol{v}(s)}{|\boldsymbol{v}(s)|}\frac{1}{\sqrt{n}}, \quad (s\in I)
-\end{cases}$$
+\end{cases}
+$$
 
 Then
-$$0=\int_0^t \boldsymbol{v}(s)\boldsymbol{\alpha}(s)\mathrm{d}s = \int_I \frac{\boldsymbol{v}(s)}{\sqrt{n}}\frac{\boldsymbol{v}(s)}{|\boldsymbol{v}(s)|}\mathrm{d}s = \frac{1}{\sqrt{n}}\int_I |\boldsymbol{v}(s)|\mathrm{d}s$$
+
+$$
+0=\int_0^t \boldsymbol{v}(s)\boldsymbol{\alpha}(s)\mathrm{d}s = \int_I \frac{\boldsymbol{v}(s)}{\sqrt{n}}\frac{\boldsymbol{v}(s)}{|\boldsymbol{v}(s)|}\mathrm{d}s = \frac{1}{\sqrt{n}}\int_I |\boldsymbol{v}(s)|\mathrm{d}s
+$$
 
 This implies the contradiction that $\boldsymbol{v}\equiv 0$ in $I$.
 
 **Definition**: We say the linear system (ODE) is *controllable* if $\mathcal{C}=\mathbb{R}^n$
 
 **Theorem 2.5**: Criterion for controllability
-Let $A$ be the cube $[-1,1]^n$ in $\mathbb{R}^n$. Suppose as well that $\operatorname{rank}G=n$, and $\operatorname{Re}\lambda < 0$ for each eigenvalue $\lambda$ of the matrix $M$. 
-Then the system(ODE) is controllable
+Let $A$ be the cube $[-1,1]^n$ in $\mathbb{R}^n$. Suppose as well that $\operatorname{rank}G=n$, and $\operatorname{Re}\lambda < 0$ for each eigenvalue $\lambda$ of the matrix $M$. Then the system(ODE) is controllable
 
 Proof: Since $\operatorname{rank}G=n$, Theroem 2.3 tells us that $\mathcal{C}$ contains some ball $B$ centered at $0$. Now take any $x^0\in\mathbb{R}^n$ and consider the evolution
-$$\begin{cases}
+
+$$
+\begin{cases}
 \dot{\boldsymbol{x}}(t)=M\boldsymbol{x}(t) \\
 \boldsymbol{x}(0)=x^0
 \end{cases}
@@ -209,7 +365,9 @@ $$
 in other words, take the control $\boldsymbol{\alpha}(\cdot)\equiv 0$. Since $\operatorname{Re}\lambda < 0$ for each eigenvalue $\lambda$ of the matrix $M$, then the origin is asymptotically stable. So ther exists a time $T$ s.t. $\boldsymbol{x}(t)\in B$. Thus $\boldsymbol{x}(T)\in B\subset \mathcal{C}$; and hence there exists a control $\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$ steering $\boldsymbol{x}(t)$ into $0$ in finite time.
 
 **Example** We once again consider the rocket railroad car, from §1.2, for which $n=2,m=1,A=[-1,1]$, and
-$$\dot{\boldsymbol{x}}=
+
+$$
+\dot{\boldsymbol{x}}=
 \begin{bmatrix}
   0 & 1 \\
   0 & 0 \\
@@ -220,20 +378,27 @@ $$\dot{\boldsymbol{x}}=
   1
 \end{bmatrix}\alpha
 $$
+
 Then
-$$G=[N, MN] = 
+$$
+G=[N, MN] = 
 \begin{bmatrix}
 0 & 1 \\
 1 & 0
 \end{bmatrix}
 $$
+
 Therefore $\operatorname{rank}G=2=n$
+
 Also, the characteristic polynomial of the matrix $M$ is
-$$p(\lambda)=\operatorname{det}(\lambda I-M)=\operatorname{det}
+
+$$
+p(\lambda)=\operatorname{det}(\lambda I-M)=\operatorname{det}
 \begin{pmatrix}
   \lambda & -1 \\
   0 & \lambda
-\end{pmatrix} = \lambda^2$$
+\end{pmatrix} = \lambda^2
+$$
 
 Since the eigenvalues are both $0$, we fail to satisfy the hypotheses of Theorem 2.5. 
 
@@ -243,74 +408,133 @@ This example motivates the following extension of the previous theorem:
 Assume $\operatorname{rank}G=n$ and $\operatorname{Re}\lambda \le 0$ for each eigenvalue $\lambda$ of $M$. Then the system(ODE) is controllable.
 
 Proof:
+
 1. If $\mathcal{C}\neq \mathbb{R}^n$, then the convexity of $\mathcal{C}$ implies that there exists a vector $b\neq 0$ and a real number $\mu$ s.t.
+
   $$b\cdot x^0\le\mu, \quad \forall x^0\in\mathcal{C}$$
+
 (Must contain a support hyperplane if $\mathcal{C}$ doesn't contain the whole space)
+
 Indeed, in the picture we see that $b\cdot(x^0-z^0)\le 0$; and this implies that $\mu:=b\cdot z^0$.
+
 <img src="pictures/pic_optimal_control/2_3_1_set.jpg" alt="plae" width="50%">
 
 We will derive a contradiction.
 
 2. Given $b\neq 0, \mu\in\mathbb{R}$, our intention is to **find $x^0\in \mathcal{C}$ s.t. $b\cdot x^0\le\mu$ fails**. Recall $x^0\in \mathcal{C}$ iff $\exist t>0$ and a control $\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$ s.t. 
+
   $$x^0=-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$$
+
 Then
-  $$b\cdot x^0=-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s
-  $$
+
+$$
+  b\cdot x^0=-\int_0^tb^\top\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s
+$$
+
 Define
-  $$\boldsymbol{v}(s):=b^\top\boldsymbol{X}^{-1}(s)N$$
+
+  $$
+  	\boldsymbol{v}(s):=b^\top\boldsymbol{X}^{-1}(s)N
+  $$
+
 3. We assert that $\boldsymbol{v}\neq 0$
+
 To see this, suppose instead that $\boldsymbol{v}\equiv 0$. Then $k$ times differentiate the expression $b^\top \boldsymbol{X}^{-1}(s)N$ w.r.t. $s$ and set $s=0$, to discover
-  $$b^\top M^kN=0, \quad k=0,1,2,\ldots$$
+
+  $$
+  	b^\top M^kN=0, \quad k=0,1,2,\ldots
+  $$
+
 This implies $b$ is orthogonal to the columns of $G$, and so $\operatorname{rank}G<n$. This is a contradiction to our hypothesis, and therefore $\boldsymbol{v}\neq 0$ holds.
 
 4. Next, define $\boldsymbol{\alpha}(\cdot)$ this ay:
-  $$\boldsymbol{\alpha}(s):=
-  \begin{cases}
+
+  $$
+  	\boldsymbol{\alpha}(s):=
+  	\begin{cases}
     -\frac{\boldsymbol{v}(s)}{|\boldsymbol{v}(s)|}, & \text{if } \boldsymbol{v}(s)\neq 0, \\
     0, & \text{if } \boldsymbol{v}(s)=0.
-  \end{cases}
+  	\end{cases}
   $$
 Then
-  $$b\cdot x^0 = -\int_0^t \boldsymbol{v}(s)\boldsymbol{\alpha}(s)\mathrm{d}s = \int_0^t |\boldsymbol{v}(s)|\mathrm{d}s
+  
   $$
+  	b\cdot x^0 = -\int_0^t \boldsymbol{v}(s)\boldsymbol{\alpha}(s)\mathrm{d}s = \int_0^t |\boldsymbol{v}(s)|\mathrm{d}s
+  $$
+
 We want to find a time $t>0$ s.t. $\int_0^t |\boldsymbol{v}(s)|\mathrm{d}s>\mu$. In fact, we assert that
-  $$\int_0^\infty |\boldsymbol{v}(s)|\mathrm{d}s=+\infty$$
+
+$$
+\int_0^\infty |\boldsymbol{v}(s)|\mathrm{d}s=+\infty
+$$
+
 To begin the proof above introduce the function  
-  $$
+
+$$
   \phi(t):=\int_t^\infty\boldsymbol{v}(s)\mathrm{d}s
-  $$
+$$
+
 We will find an ODE $\phi$ satisfies. Take $p(\cdot)$ to be the characteristic polynomial of $M$. Then
-  $$
+
+$$
   \begin{aligned}
     &p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\boldsymbol{v}(t)\\
     =&p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)[b^\top e^{-tM}N]\\
     =&b^\top \left(p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)e^{-tM}\right)N \\
     =&b^\top \left(p\left(M\right)e^{-tM}\right)N \equiv 0
   \end{aligned}
-  $$
+$$
+
 Since $p(M)=0$, according to the Cayley–Hamilton Theorem. But since $p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\boldsymbol{v}(t)\equiv 0$, it follows that 
-  $$-\frac{\mathrm{d}}{\mathrm{d}t}p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\phi(t) = p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\left(-\frac{\mathrm{d}}{\mathrm{d}t}\phi\right)=p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\boldsymbol{v}(t)=0$$
+
+  $$
+  	-\frac{\mathrm{d}}{\mathrm{d}t}p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\phi(t) = p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\left(-\frac{\mathrm{d}}{\mathrm{d}t}\phi\right)=p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\boldsymbol{v}(t)=0
+  $$
+
 Hence $\phi$ solves the (n+1)th order ODE
-  $$\frac{\mathrm{d}}{\mathrm{d}t}p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\phi(t) = 0$$
+
+  $$
+  	\frac{\mathrm{d}}{\mathrm{d}t}p\left(-\frac{\mathrm{d}}{\mathrm{d}t}\right)\phi(t) = 0
+  $$
+
 We also know that $\phi(\cdot)\neq 0$. Let $\mu_1,\cdots,\mu_{n+1}$ be the solutions of $\mu p(-\mu)=0$. According to ODE theory, we can write
-$\phi(t)=$ sum of the terms of the form $p_i(t)e^{\mu_i t}$
+
+$$
+\phi(t)=$ sum of the terms of the form $p_i(t)e^{\mu_i t}
+$$
+
 for appropriate polynomials $p_i(\cdot)$
+
 Furthermore, we see that $\mu_{n+1}=0$ and $\mu_k=-\lambda_k$, where $\lambda_1,\cdots,\lambda_n$ are the eigenvalues of $M$. By assumption $\operatorname{Re}\mu_k\ge 0, \quad k=0,1,\cdots,n$. If $\int_0^\infty |\boldsymbol{v}(s)|\mathrm{d}s<\infty$, then
-  $$|\phi(t)|\le\int_0^\infty |\boldsymbol{v}(s)|\mathrm{d}s\to 0, \quad \text{as }t\to\infty$$
+
+  $$
+  	|\phi(t)|\le\int_0^\infty |\boldsymbol{v}(s)|\mathrm{d}s\to 0, \quad \text{as }t\to\infty
+  $$
+
 that is, $\phi(t)\to 0$ as $t\to\infty$. This's a contradiction to the representation formula of $\phi(t)=\sum p_i(t)e^{\mu_i t}$, with $\operatorname{Re}\mu_i\ge 0$. Assertaion is proved.
 
 5. Consequently given any $\mu, \exist t>0$ s.t.
-  $$b\cdot x^0=\int_0^t |\boldsymbol{v}(s)|\mathrm{d}s > \mu$$
+
+  $$
+  	b\cdot x^0=\int_0^t |\boldsymbol{v}(s)|\mathrm{d}s > \mu
+  $$
+
   a contradiction to (2.8). Therefore $\mathcal{C}=\mathbb{R}^n$.
 
 ## 2.4 Observability
 Consider the linear system of ODE
-$$\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}$$
+
+$$
+\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}
+$$
 
 where $M\in\mathbb{M}^{n\times n}$.
 
 In this section we address the observability problem, modeled as follows. We suppose that we can observe
-$$\boldsymbol{y}(t):=N\boldsymbol{x}(t)\quad (t\ge 0)$$
+
+$$
+\boldsymbol{y}(t):=N\boldsymbol{x}(t)\quad (t\ge 0)
+$$
 
 for a given matrix $N\in\mathbb{M}^{m\times n}$. Consequently, $\boldsymbol{y}(t)\in\mathbb{R}^{m}$. The interesting situation is when $m<<n$ and we interpret $\boldsymbol{y}(\cdot)$ as **low-dimensional** “observations” or “measurements” of the **high-dimensional** dynamics $\boldsymbol{x}(\cdot)$
 
@@ -328,6 +552,7 @@ The interesting cases lie between these extremes.
 
 **Theorem 2.7**: Observability and controllability
 The system 1
+
 $$
 \begin{cases}
   \dot{\boldsymbol{x}}(t) = M\boldsymbol{x}(t) \\
@@ -336,6 +561,7 @@ $$
 $$
 
 is *observable* iff the system 2
+
 $$
 \dot{\boldsymbol{z}}(t) = M^\top \boldsymbol{z}(t) + N^\top \boldsymbol{\alpha}(t), \quad A=\mathbb{R}^m
 $$
@@ -345,45 +571,97 @@ is *controllable*, meaning that $\mathcal{C}=\mathbb{R}^n$
 **INTERPRETATION**. This theorem asserts that somehow “**observability** and **controllability** are dual concepts” for linear systems.
 
 Proof:
+
 1. ($\leftarrow$) Suppose the system 1 is not observable. Then $\exist x^1\neq x^2\in\mathbb{R}^n$, s.t.
+
    $$
-   \begin{cases}
+   	\begin{cases}
      \dot{\boldsymbol{x}}_1(t) = M\boldsymbol{x}_1(t), \quad \boldsymbol{x}_1(0)=x^1 \\
      \dot{\boldsymbol{x}}_2(t) = M\boldsymbol{x}_2(t), \quad \boldsymbol{x}_2(0)=x^2
-   \end{cases}
+   	\end{cases}
    $$
+
 but $\boldsymbol{y}(t):=N\boldsymbol{x}_1(t)\equiv N\boldsymbol{x}_2(t), \forall t\ge 0$. Let
-  $$\boldsymbol{x}(t):=\boldsymbol{x}_1(t) - \boldsymbol{x}_2(t), \quad x^0:=x^1-x^2$$
+
+  $$
+  	\boldsymbol{x}(t):=\boldsymbol{x}_1(t) - \boldsymbol{x}_2(t), \quad x^0:=x^1-x^2
+  $$
+
 Then
-  $$\dot{\boldsymbol{x}}(t)=M\boldsymbol{x}(t), \quad\boldsymbol{x}(0)=x^0\neq 0$$
+
+  $$
+  	\dot{\boldsymbol{x}}(t)=M\boldsymbol{x}(t), \quad\boldsymbol{x}(0)=x^0\neq 0
+  $$
+
 but
-  $$N\boldsymbol{x}(t)=0 \quad (t\ge 0)$$
+
+  $$
+  	N\boldsymbol{x}(t)=0 \quad (t\ge 0)
+  $$
+
 Now
-  $$\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 = e^{tM}x^0$$
+
+  $$
+  	\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 = e^{tM}x^0
+  $$
+
 Thus
-  $$Ne^{tM}x^0=0 \quad (t\ge 0)$$
+
+  $$
+  	Ne^{tM}x^0=0 \quad (t\ge 0)
+  $$
+
 Let $t=0$, to find $Nx^0=0$. Then differentiate this expression $k$ times in $t$ and let $t = 0$, to discover as well that
-  $$NM^kx^0=0$$
+
+  $$
+  	NM^kx^0=0
+  $$
+
 for $k=0,1,2\cdots$ Hence $(x^0)^\top(M^k)^\top N^\top = 0$ and hence $(x^0)^\top(M^\top)^kN^\top = 0$. This implies
-$$(x^0)^\top[N^\top, M^\top N^\top, \cdots, (M^\top)^{n-1}N^\top]=0$$
+
+$$
+(x^0)^\top[N^\top, M^\top N^\top, \cdots, (M^\top)^{n-1}N^\top]=0
+$$
+
 Since $x^0\neq 0, \operatorname{rank}[N^\top, \cdots, (M^\top)^{n-1}N^\top]<n$. Thus system 2 is not controllable. Consequently, system 2 controllable implies system 1 is observable.
 
 2. ($\to$)Assume now system 2 is not controllable. Then $\operatorname{rank}[N^\top, \cdots,(M^\top)^{n-1}N^\top]<n$, and consequently according to Theorem 2.3, $\exist x^0\neq 0$, s.t.
-  $$(x^0)^\top[N^\top, \cdots,(M^\top)^{n-1}N^\top]=0$$
-That is, $NM^kx^0=0, \, \forall k=0,1,2,\cdots,n-1$
-We wnat to show that $\boldsymbol{y}(t)=N\boldsymbol{x}(t)\equiv 0$, where 
-$$\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}$$
-According to the Cayley–Hamilton Theorem, we can write
-  $$M^n = -\beta_{n-1}M^{n-1} - \cdots - \beta_0I$$
-for appropriate constants. Consequently $NM^nx^0=0$. Likewise
+
   $$
+  	(x^0)^\top[N^\top, \cdots,(M^\top)^{n-1}N^\top]=0
+  $$
+
+That is, $NM^kx^0=0, \, \forall k=0,1,2,\cdots,n-1$
+
+We want to show that $\boldsymbol{y}(t)=N\boldsymbol{x}(t)\equiv 0$, where 
+
+$$
+\begin{cases}\dot{\boldsymbol{x}}(t)=M \boldsymbol{x}(t)\\ \boldsymbol{x}(0)=x^0.\end{cases}
+$$
+
+According to the Cayley–Hamilton Theorem, we can write
+
+  $$
+  	M^n = -\beta_{n-1}M^{n-1} - \cdots - \beta_0I
+  $$
+
+for appropriate constants. Consequently $NM^nx^0=0$. Likewise
+
+$$
   \begin{aligned}
   M^{n+1}&=M(-\beta_{n-1}M^{n-1} - \cdots - \beta_0I) \\
   &= -\beta_{n-1}M^{n} - \cdots - \beta_0M
   \end{aligned}
-  $$
+$$
+
 and so $NM^{n+1}x^0=0$. Similarly, $NM^kx^0=0, \, \forall k$.
+
 Now
-  $$\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 = e^{Mt}x^0 = \sum_{k=0}^\infty \frac{t^kM^k}{k!}x^0$$
+
+$$
+\boldsymbol{x}(t)=\boldsymbol{X}(t)x^0 = e^{Mt}x^0 = \sum_{k=0}^\infty \frac{t^kM^k}{k!}x^0
+$$
+
 and therefore $N\boldsymbol{x}(t)=N\sum\limits_{k=0}^\infty \frac{t^kM^k}{k!}x^0 = 0$
+
 We have shown that if system 2 is not controllable, then system 1 is not observable.

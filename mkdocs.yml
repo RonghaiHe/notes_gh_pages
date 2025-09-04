@@ -186,6 +186,7 @@ extra_css:
 
 
 extra_javascript:
+  - javascripts/mathjax.js
   - style/js/toc.js
   # - style/js/katex.js
   - style/js/mathjax.js
@@ -231,7 +232,6 @@ plugins:
         - index.md
         - link.md
       strict: false
-
 
 # navigation
 # 注意左右下划线的写法

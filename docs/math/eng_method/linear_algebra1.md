@@ -10,18 +10,20 @@ TA: xzhu24-c@my.cityu.edu.hk -->
 
 # Introduction of Linear algebra
 ## sets
-Definition:
-**sets**: collection of objects, called **elements** of the set
-- $x\in A; x\notin A$
-- list them using $\{\}$
-- no order: $\{1,2\}=\{2,1\}$
+!!!note "Definition"
+    **sets**: collection of objects, called **elements** of the set<br>
+    - $x\in A; x\notin A$
+    - list them using $\{\}$
+    - no order: $\{1,2\}=\{2,1\}$<br>
 
 **subsets**: 
+
 - $B\subseteq A$
 - proper set: $B\subseteq A, B\neq A$
 - empty set: $\phi$
 
 **calculation**
+
 - union: $A\cup B$
 - intersection: $A \cap B$
   - disjoint sets: $A\cap B=\phi$
@@ -30,6 +32,7 @@ Definition:
 - infinite sets: $\mathbb{R}$
 
 Number systems:
+
 - $\mathbb{N}(\mathbb{N}_0: (\text{ include }0); \mathbb{N}_1: (\text{ not include }0))$
 - $\mathbb{Z}$
 - Rational number: $\mathbb{Q}$
@@ -37,24 +40,30 @@ Number systems:
 - Complex number: $\mathbb{C}$
 
 Cardinal number: the number if elements of a set
+
 For infinite sets:
+
 - Countable sets: aleph zero: $\mathbb{N},\mathbb{Z},\mathbb{Q}$
 - Uncountable sets: beth one
 
 ## operations
 operation: from a set to itself
+
 Unary:
+
 - negation: $-$
 - factorial: $!$
 - trigonometric: $\sin,\cos$
 
 Binary:
+
 - $+-x/$
 
 tenary:...
 
 ### Arithmetic
 - $+,\times$
+
   Set | $\mathbb{N}_0$ | $\mathbb{N}_1$
   ----|----|----
   Elements| $0,1,2,3\in\mathbb{N}_0$ | $1,2,3,4\in\mathbb{N}_1$
@@ -64,6 +73,7 @@ tenary:...
   Commutative| $1+2=2+1$ | $2\times 3=3\times 2$
   Distributive|-|-
 - $-,/$
+  
   Set | $\mathbb{Z}$ | $\mathbb{Q}$
   ----|----|----
   Elements| $x,y,\cdots\in\mathbb{Z}$ | $x,y\cdots\in\mathbb{Q}$
@@ -72,6 +82,7 @@ tenary:...
   inverses| $-x$ | $\frac{1}{x}$ or $x^{-1}$
 
 More generally:
+
 Set | $ S$ | $\mathbb{Z}$ | $\mathbb{Q}$
 ----|----|----|----
 Elements|$x,y,z,\cdots\in S$ | $x,y,z,\cdots\in\mathbb{Z}$ | $x,y,z,\cdots\in\mathbb{Q}$
@@ -80,11 +91,12 @@ Closure| $x*y\in S$ | $x+y\in\mathbb{Z}$ | $x\times y\in\mathbb{Q}$
 Associative|$(x*y)*z=x*(y*z)$ | $(x+y)+z=x+(y+z)$ | $(x\times y)\times z=x\times(y\times z)$
 Commutative| $x*y=y*x$ | $x+y=y+x$ | $x\times y=y\times x$
 Distributive|-|-|-
-Identity| $\exist e\in S: x*e=e*x=x$ | $0$ | $1$
-inverses| $\forall x,\exist x^{-1}\in S: x*x^{-1}=x^{-1}*x=e$ |  $-x$ | $\frac{1}{x}$ or $x^{-1}$
+Identity| $\exists e\in S: x*e=e*x=x$ | $0$ | $1$
+inverses| $\forall x,\exists x^{-1}\in S: x*x^{-1}=x^{-1}*x=e$ |  $-x$ | $\frac{1}{x}$ or $x^{-1}$
 
 ## group
 Given:
+
 - Set of elements $G$
 - Operation: $*$
 
@@ -96,13 +108,14 @@ Closure| $x*y\in G$
 Associative|$(x*y)*z=x*(y*z)$
 Commutative| $x*y=y*x$? (Not requestes)
 Distributive|-
-Identity| $\exist e\in G: x*e=e*x=x$
-inverses| $\forall x,\exist x^{-1}\in G: x*x^{-1}=x^{-1}*x=e$
+Identity| $\exists e\in G: x*e=e*x=x$
+inverses| $\forall x,\exists x^{-1}\in G: x*x^{-1}=x^{-1}*x=e$
 
 - If communtative: commutative group / abelian group
 - If not commutative: non-commutative group / non-abelian group
 
 Example of group:
+
 - commutative:
   - $\mathbb{Z}$ with $+$
   - $\mathbb{Z}$ commutes under $+$
@@ -111,6 +124,7 @@ Example of group:
 
 ## Ring
 Given:
+
 - Set of elements $R$
 - Operation: $+, \times$
 
@@ -121,14 +135,15 @@ Given:
 |Closure| $a+b\in R$ | $a\times b\in R$ |
 |Associative| $(a+b)+c=a+(b+c)$ | $(a\times b)\times c=a\times(b\times c)$|
 |Commutative| $a+b=b+a$ | $a\times b=b\times a$? (Not required)|
-|Distributive| $a\times(b+c)=a\times b + a\times c; <br>(b+c)\times a=b\times a+c\times a$|
-|Identity| $\exist 0\in R: a+0=0+a=a$ | $\exist 1\in R: 1\times a = a\times 1 = a$|
-|Inverses| $\exist (-a)\in R: a+(-a)=0$ | $\exist a^{-1}\in R$? (Not required)|
+|Distributive| $a\times(b+c)=a\times b + a\times c; \\ (b+c)\times a=b\times a+c\times a$|
+|Identity| $\exists 0\in R: a+0=0+a=a$ | $\exists 1\in R: 1\times a = a\times 1 = a$|
+|Inverses| $\exists (-a)\in R: a+(-a)=0$ | $\exists a^{-1}\in R$? (Not required)|
 
 - distributive: left distributive v.s. right distributive
 - If communitative, just check one distributivity
 
 Example of ring:
+
 - commutative:
   - $\mathbb{Z}$ with $+,\times$
 - non-commutative:
@@ -136,6 +151,7 @@ Example of ring:
 
 ## Field
 Given:
+
 - Set of elements $F$
 - Operation: $+, \times$
 
@@ -147,34 +163,41 @@ Given:
 |Associative| $(a+b)+c=a+(b+c)$ | $(a\times b)\times c=a\times(b\times c)$|
 |Commutative| $a+b=b+a$ | $a\times b=b\times a$|
 |Distributive| $a\times(b+c)=a\times b + a\times c$|
-|Identity| $\exist 0\in F: a+0=0+a=a$ | $\exist 1\in F: 1\times a = a\times 1 = a$|
-|inverses| $\exist (-a)\in F: a+(-a)=0$ | $\exist a^{-1}\in F: a\times a^{-1}=1$|
+|Identity| $\exists 0\in F: a+0=0+a=a$ | $\exists 1\in F: 1\times a = a\times 1 = a$|
+|inverses| $\exists (-a)\in F: a+(-a)=0$ | $\exists a^{-1}\in F: a\times a^{-1}=1$|
 
 Example of field:
+
 - $\mathbb{Q}$ with $+,\times$
 - $\mathbb{R}$ with $+,\times$
 - $\mathbb{C}$ with $+,\times$
 - $\operatorname{GF}(2) / Z_2$, a finite field with two elements with XOR and AND.
 
 Modulo Arithmetic:
+
 - $17 \pmod 5 = 2$
 - $17 \equiv 2 (\pmod 5)$
 
 **Theorem C.1** (Cancellation Laws):
+
 $\forall a,b,c$ in a field, the following statements are true:
+
 - If $a+b=c+b$, then $a=c$
 - If $a\cdot b=c\cdot b,b\neq 0$, then $a=c$
 
 **Corollary**: the identity elements and the inverse elements are **unique**
 
 **Theorem C.2**:
+
 $\forall a,b$ in a field, the following statements are true:
+
 - $a\cdot 0=0$
 - $(-a)\cdot b=a\cdot(-b)=-(a\cdot b)$
 - $(-a)\cdot(-b)=a\cdot b$
 
 ## vector space
 Given:
+
 - Set of elements $V, F$
 - Operation: $+, \times$
 - Commutative group $V$ under $+$, with a Field $F$
@@ -187,15 +210,17 @@ Closure|$\vec{u}+\vec{v}\in V$|$a\times \vec{u}\in V$ | $a+b\in F$ | $a\times b\
 Associative|$(\vec{u}+\vec{v})+\vec{w} = \vec{u}+(\vec{v}+\vec{w})$|$(a\times b)\times \vec{u}=a\times(b\times \vec{u})$| $(a+b)+c=a+(b+c)$ | $(a\times b)\times c=a\times(b\times c)$
 Commutative|$\vec{u}+\vec{v}=\vec{v}+\vec{u}$|\color{gray}{$a\times \vec{u}=\vec{u}\times a$}| $a+b=b+a$ | $a\times b=b\times a$
 Distributive|-|$a\times(\vec{u}+\vec{v})=a\times\vec{u}+a\times\vec{v}; (a+b)\times\vec{u}=a\times\vec{u}+b\times\vec{u}$| $a\times(b+c)=a\times b + a\times c$
-Identity| $\exist \vec{0}\in V: \vec{u}+\vec{0}=\vec{0}+\vec{u}=\vec{u}$ |$1\times \vec{u}=\vec{u}$|$\exist 0\in F: a+0=0+a=a$ | $\exist 1\in F: 1\times a = a\times 1 = a$
-inverses| $\exist (-\vec{u})\in V: \vec{u}+(-\vec{u})=\vec{0}$|\color{gray}{$0\times u=\vec{0}; (-1)\times \vec{u}=-\vec{u}$}|$\exist (-a)\in F: a+(-a)=0$ | $\exist a^{-1}\in F: a\times a^{-1}=1$
+Identity| $\exists \vec{0}\in V: \vec{u}+\vec{0}=\vec{0}+\vec{u}=\vec{u}$ |$1\times \vec{u}=\vec{u}$|$\exists 0\in F: a+0=0+a=a$ | $\exists 1\in F: 1\times a = a\times 1 = a$
+inverses| $\exists (-\vec{u})\in V: \vec{u}+(-\vec{u})=\vec{0}$|\color{gray}{$0\times u=\vec{0}; (-1)\times \vec{u}=-\vec{u}$}|$\exists (-a)\in F: a+(-a)=0$ | $\exists a^{-1}\in F: a\times a^{-1}=1$
 
 
 Module definition: similar to vector space, but:
+
 - commutative of scalar multiplication not required
 - commutative of multiplication for number part, not required
 
 Definition:
+
 - sum: $x+y$
 - product: $ax$
 - scalars: elements of $F$
@@ -210,6 +235,7 @@ Definition:
 ## addition and scalar multiplication
 ### matrix
 Definitions:
+
 - diagonal entries: $a_{ij}$ with $i=j$
 - i-th row: $a_{i1},a_{i2},\cdots,a_{in}$
 - j-th column: $a_{1j},a_{2j},\cdots,a_{mj}$
@@ -259,7 +285,8 @@ $$
 
 set of all polynominal: $\mathsf{P}(F)$
 
-**Theorem 1.1**: Calcellation Law for Vector Addition
+**Theorem 1.1**: Cancellation Law for Vector Addition
+
 If $x,y,z$ are vectors in a vector space, s.t. $x+z=y+z$, then $x=y$
 
 **Corolloary 1**: The vector $\mathbf{0}$ is unique (zero vector)
@@ -267,6 +294,7 @@ If $x,y,z$ are vectors in a vector space, s.t. $x+z=y+z$, then $x=y$
 **Corolloary 2**: The inverse element of vector is unique (additive inverse)
 
 **Theorem 1.2**: In any vector space $\mathsf{V}$:
+
 - $0\boldsymbol{x}=\mathbf{0}, \forall \boldsymbol{x}\in\mathsf{V}$
 - $(-a)x=-(ax)=a(-x), \forall a\in F, x\in \mathsf{V}$
 - $a\mathbf{0}=\mathbf{0}, \forall a\in F$
@@ -287,6 +315,7 @@ In any vector space $\mathsf{V}$, note that $\mathsf{V}$ and $\{0\}$ are subspac
 The **transpose** $A^t$ of an $m \times n$ matrix $A$ is the $n \times m$ matrix obtained from $A$ by interchanging the rows with the columns; that is, $(A^t)_{ij} = A_{ji}$.
 
 A **symmetric** matrix is a matrix $A$ such that $A^t = A$. 
+
 - Clearly, a symmetric matrix must be **square**. The set $W$ of all symmetric matrices in $\mathsf{M}_{nxn}(F)$ is a subspace of $\mathsf{M}_{nxn}(F)$ since the conditions of Theorem 1.3 hold
 
 A diagonal matrix is a $n\times n$ matrix if $M_{ij}=0$ whenever $i\neq j$
@@ -303,11 +332,12 @@ Let $n$ be nonnegative integer, $\mathsf{P}_n(F)$ consists of all polynominals i
 - $S_1+S_2:=\{x+y: x\in S_1, y\in S_2\}$
 
 **direct sum**: $\mathsf{W}_1\oplus\mathsf{W}_2$
+
 - $\mathsf{W}_1,\mathsf{W}_2$ are subspaces of $\mathsf{V}$
 - $\mathsf{W}_1\cap\mathsf{W}_2=\{0\}, \, \mathsf{W}_1\cup\mathsf{W}_2=\mathsf{V}$
 
 ## 1.4 linear combination and systems of linear equations
-**Definition**: Let $\mathsf{V}$ be a vector space and $S$ a nonempty subset of $\mathsf{V}$. A vector $\vec{v} \in \mathsf{V}$ is called a **linear combination** of vectors of $S$ if there exist a finite number of vectors $\vec{u}_1, \vec{u}_2,.., \vec{u}_n$ in $S$ and scalars $a_1, a_2,.., a_n$ in $F$ such that $\vec{v}= a_1\vec{u}_1+a_2\vec{u}_2+...+ a_n\vec{u}_n$. In this case we also say that $\vec{v}$ is a linear combination of $\vec{u}_1, \vec{u}_2, ·.., \vec{u}_n$ and call $a_1, a_2,·..$, An the **coefficients** of the linear combination.
+**Definition**: Let $\mathsf{V}$ be a vector space and $S$ a nonempty subset of $\mathsf{V}$. A vector $\vec{v} \in \mathsf{V}$ is called a **linear combination** of vectors of $S$ if there exists a finite number of vectors $\vec{u}_1, \vec{u}_2,.., \vec{u}_n$ in $S$ and scalars $a_1, a_2,.., a_n$ in $F$ such that $\vec{v}= a_1\vec{u}_1+a_2\vec{u}_2+...+ a_n\vec{u}_n$. In this case we also say that $\vec{v}$ is a linear combination of $\vec{u}_1, \vec{u}_2, ·.., \vec{u}_n$ and call $a_1, a_2,·..$, An the **coefficients** of the linear combination.
 
 Observe that in any vector space $\mathsf{V}$, $O\vec{v} = \vec{0}$ for each $\vec{v}\in \mathsf{V}$. Thus the zero vector is a linear combination of any nonempty subset of $\mathsf{V}$.
 
@@ -322,21 +352,26 @@ In $\mathbb{R}^3$, for instance, the span of the set $\{(1,0,0), (0,1,0)\}$ cons
 **Definition**: A subset $S$ of a vector space $\mathsf{V}$ **generates** (or **spans**)$\mathsf{V}$ if $\operatorname{span}(S)=\mathsf{V}$. In this case, we also say that the vectors of $S$ generate (or span)$\mathsf{V}$.
 
 ## 1.5 linear dependence and linear independence
-**Definition**: A subset $S$ of a vector space $\mathsf{V}$ is called **linearly dependent** if there exist a finite number of distinct vectors $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$ in $S$ and scalars $a_1,a_2,\cdots ,a_n$, not all zero, such that 
+**Definition**: A subset $S$ of a vector space $\mathsf{V}$ is called **linearly dependent** if there exists a finite number of distinct vectors $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$ in $S$ and scalars $a_1,a_2,\cdots ,a_n$, not all zero, such that 
+
 $$a_1\vec{u}_1+a_2\vec{u}_2+\cdots+a_n\vec{u}_n=\vec{0}$$
 
 In this case we also say that the vectors of $S$ are linearly dependent
 
-For any vectors $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$, We have $a_1\vec{u}_1+a_2\vec{u}_2+\cdots+a_n\vec{u}_n=\vec{0}$ if $a_1=a_2=\cdots =a_n=0$. We call this the **trivial representation** of $\vec{0}$ as a linear combination of $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$. Thus, for a set to be linearly dependent, there must exist a **nontrivial representation** of $\vec{0}$ as a linear combination of vectors in the set. 
+For any vectors $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$, We have $a_1\vec{u}_1+a_2\vec{u}_2+\cdots+a_n\vec{u}_n=\vec{0}$ if $a_1=a_2=\cdots =a_n=0$. We call this the **trivial representation** of $\vec{0}$ as a linear combination of $\vec{u}_1,\vec{u}_2,\cdots,\vec{u}_n$. Thus, for a set to be linearly dependent, there must exists a **nontrivial representation** of $\vec{0}$ as a linear combination of vectors in the set. 
 
 Consequently, any subset of a vector space that **contains the zero vector** is **linearly dependent** because $\vec{0} =1\cdot \vec{0}$ is a nontrivial representation of 0 as a 1linear combination of vectors in the set.\
 
 **Definition**: A subset $S$ of a vector space that is not linearly dependent is called **linearly independent**. As before, we also say that the vectors ot $S$ are linearly independent.
+
 The following facts about linearly independent sets are true in any vector space:
+
 1. **The empty set is linearly independent**, for linearly dependent sets must be nonempty.
 2. A set consisting of a single nonzero vector is linearly independent. For if $\{\vec{u}\}$ is linearly dependent. then $a\vec{u}=0$ for some nonzero scalar $a$. Thus
+
 $$\vec{u}=a^{-1}(a\vec{u})=a^{-1}\vec{0}=\vec{0}$$
-3. A set is linearly independent iff the only representations of $\vec{0}$ as linear combinations of its vectors are **trivial representations**
+
+1. A set is linearly independent iff the only representations of $\vec{0}$ as linear combinations of its vectors are **trivial representations**
 
 ### Examples
 #### polynominal
@@ -348,6 +383,7 @@ is linearly independent in $\mathsf{P}_n(F)$.
 
 ### theorem
 **Theorem 1.6**: Let $\mathsf{V}$ be a vector space, and let $S_1 \subseteq S_2 \subseteq \mathsf{V}$.If $S_1$ is
+
 linearly dependent, then $S_2$ is linearly dependent
 
 **Corollary**: Let $\mathsf{V}$ be a vector space,  $S_1 \subseteq S_2 \subseteq \mathsf{V}$. If $S_2$ is linearly
@@ -367,6 +403,7 @@ independent,  then $S_1$ is linearly independent.
 
 #### Theorem
 **Theorem 1.8**: Let $\mathsf{V}$ be a vector space and $\beta=\{\vec{u}_1, \vec{u}_2,\cdot, \vec{u}_n\}$ be a subset of $\mathsf{V}$. Then $\beta$ is a basis for $\mathsf{V}$ if and only if each $\vec{v}\in\mathsf{V}$ can be **uniquely expressed as a linear combination** of vectors of $\beta$, that is, can be expressed in the form
+
 $$\vec{v} = a_1\vec{u}_1 + a_2\vec{u}_2 + \cdots + a_n \vec{u}_n$$
 
 for unique scalars $a_1, a_2,\cdots, a_n$.
@@ -389,11 +426,13 @@ Let $\mathsf{V}$ be a vector space that is generated by a set $G$ containing exa
 - The vector space $\mathsf{P}_n(F)$ has dimension $n+1$ 
 
 The following examples show that the dimension of a vector space depends on its field of scalars. 
+
 - Over the field of *complex numbers*, the vector space of complex numbers has dimension $1$. (A basis is $\{1\}$.) 
 - Over the field of *real numbers*, the vector space of complex numbers has dimension $2$. (A basis is $\{1, i\}$)
 
 #### Corollary and theorem
 **Corollary 2**: Let $\mathsf{V}$ be a vector space with dimension $n$. 
+
 1. Any finite generating set for $\mathsf{V}$ contains at least $n$ vectors, and a generating set for $\mathsf{V}$ that contains exactly $n$ vectors is a basis for $\mathsf{V}$. 
 2. Any linearly independent subset of $\mathsf{V}$ that contains exactly is vectors is a basis for $\mathsf{V}$. 
 3. Every linearly independent subset of $\mathsf{V}$ can be **extended** to a basis for $\mathsf{V}$. 
@@ -401,6 +440,7 @@ The following examples show that the dimension of a vector space depends on its 
 **Theorem 1.11**: Let $\mathsf{W}$ be a subspace of a finite-dimensional vector space $\mathsf{V}$. Then $\mathsf{W}$ is finite-dimensional and $\operatorname{dim}(\mathsf{W}) < \operatorname{dim}(\mathsf{V})$. Moreover, if $\operatorname{dim}(\mathsf{W}) = \operatorname{dim}(\mathsf{V})$, then $\mathsf{V} = \mathsf{W}$.
 
 The set of diagonal $n\times n$ matrices is a subspace $\mathsf{W}$ of $\mathsf{M}_{n\times n} (F)$. A basis for $\mathsf{W}$ is
+
 $${E^{11}, E^{22},\cdots,E^{nn}},$$
 
 where $E^{ij}$ is the matrix in which the only nonzero entry is a 1 in the ith row and jth column. Thus $\operatorname{dim}(\mathsf{W})= n$.
